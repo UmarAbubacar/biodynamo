@@ -180,8 +180,12 @@ Real3 NeuriteElement::OriginOf(const AgentUid& daughter_uid) const {
 StructureIdentifierSWC NeuriteElement::GetIdentifierSWC() const {
   if (IsAxon()) {
     return StructureIdentifierSWC::kAxon;
-  } else {
+  } else if (IsBasalDendrite()) {
+    return StructureIdentifierSWC::kBasalDendrite;
+  } else if (IsApicalDendrite()) {
     return StructureIdentifierSWC::kApicalDendrite;
+  } else {
+    return StructureIdentifierSWC::kUndefined;
   }
 };
 
