@@ -372,7 +372,7 @@ class MathArray {  // NOLINT
   /// is not duplicated.
   void Normalize(T norm) {
     if (norm == 0) {
-      Log::Fatal("MathArray::Normalize",
+      Log::Warning("MathArray::Normalize",
                  "You tried to normalize a zero vector. "
                  "This cannot be done. Exiting.");
     }
