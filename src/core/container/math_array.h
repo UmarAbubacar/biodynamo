@@ -373,8 +373,9 @@ class MathArray {  // NOLINT
   void Normalize(T norm) {
     if (norm == 0) {
       Log::Warning("MathArray::Normalize",
-                 "You tried to normalize a zero vector. "
-                 "This cannot be done. Exiting.");
+                   "You tried to normalize a zero vector. "
+                   "This cannot be done. Exiting.");
+      return;
     }
 #pragma omp simd
     for (size_t i = 0; i < N; i++) {
