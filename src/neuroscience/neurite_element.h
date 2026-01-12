@@ -377,8 +377,16 @@ class NeuriteElement : public Agent, public NeuronOrNeurite {
   // ***************************************************************************
 
   bool IsAxon() const { return is_axon_; }
+  bool IsApicalDendrite() const { return is_apical_dendrite_; }
+  bool IsBasalDendrite() const { return is_basal_dendrite_; }
 
   void SetAxon(bool is_axon) { is_axon_ = is_axon; }
+  void SetApicalDendrite(bool is_apical_dendrite) {
+    is_apical_dendrite_ = is_apical_dendrite;
+  }
+  void SetBasalDendrite(bool is_basal_dendrite) {
+    is_basal_dendrite_ = is_basal_dendrite;
+  }
 
   AgentPointer<NeuronOrNeurite>& GetMother() { return mother_; }
 
@@ -498,6 +506,8 @@ class NeuriteElement : public Agent, public NeuronOrNeurite {
   Real3 z_axis_ = {{0.0, 0.0, 1.0}};
 
   bool is_axon_ = false;
+  bool is_apical_dendrite_ = false;
+  bool is_basal_dendrite_ = false;
 
   /// Parent node in the neuron tree structure can be a Neurite element
   /// or cell body
